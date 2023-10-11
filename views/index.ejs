@@ -12,7 +12,7 @@
         <h1><%= data.name %> is up <%= data.quotes["USD"].market_cap_change_24h %>% in the past 24 hours.</h1>
     </div>
     <div>
-    <% if (data.quotes["USD"].market_cap_change_24h>=0){ %>
+    <% if (data.quotes["USD"].market_cap_change_24h<0){ %>
         <img src="/images/joever.jpg" alt="Joe Biden looking downtrodden">
     <%} else {%>
         <img src="/images/the line goes up.jpg" alt="Graph of a line going up">
