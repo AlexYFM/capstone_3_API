@@ -1,34 +1,21 @@
-import express from "express"
-import bodyParser from "body-parser";
+import express from "express";
+import axios from "axios";
 
 const app = express()
-const port = 3000;
-
-let _home = [] // home checklist array
-let _work = [] // work checklist array
+const port = 3000
 
 app.use(express.static("public"))
 
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.get("/", (req, res) => {
-    res.render("home.ejs", {home: _home})
+app.get("/", async (req, res) => {
+    try {
+        const result = await axios.get("https://api.coinpaprika.com/v1/tickers/btc-bitcoin")
+        res.render("index.ejs", {data: result.data})
+    } catch (error) {
+        console.log(error.response);
+        res.status(500);
+    }
 })
 
-app.get("/work", (req, res) =>{
-    res.render("work.ejs", {work: _work})
-})
-
-app.post("/submit", (req, res) => {
-    _home.push(req.body['task'])
-    res.render("home.ejs", {home: _home})
-})
-
-app.post("/submit-work", (req, res) => {
-    _work.push(req.body['task'])
-    res.render("work.ejs", {work: _work})
-})
-
-app.listen(port, () =>{
-    console.log(`Server listening on port ${port}.`)
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`)
 })
