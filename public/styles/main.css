@@ -1,3 +1,19 @@
-img {
-    height: 50vh
-}  
+.up{
+    background-image: url("/images/the\ line\ goes\ up.jpg"); 
+    background-size: auto 50vh; 
+    background-position: center; 
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    height: 50vh; 
+}
+
+.down{
+    background-image: url("/images/diamond\ hands.jpg"); 
+    background-size: auto 50vh; 
+    background-position: center; 
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    height: 50vh; 
+}
+
+img{
+    height: 50vh;
+}
