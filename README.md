@@ -1,2 +1,2 @@
 # capstone_3_API
-Working with public APIs using axios, still using Node, Express, and EJS
+To run this repo, just clone it, use "npm install" in the base directory, and run "nodemon index.js" to start the app in localhost:3000. 
